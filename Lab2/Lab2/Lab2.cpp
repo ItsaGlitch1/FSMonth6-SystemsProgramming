@@ -2,12 +2,12 @@
 //
 
 #include <iostream>
+#include <bitset>
 
 unsigned int bitField = 19;
 int main()
 {
-    int bit;
-    TurnOn(bit);
+
 }
 void TurnOn(int bit)
 {
