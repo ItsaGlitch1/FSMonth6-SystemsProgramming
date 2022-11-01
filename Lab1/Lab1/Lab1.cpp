@@ -17,24 +17,24 @@ void part10();
 int main()
 {	
 
-	//part1();
-	//std::cout << "\n\n";
-	//part2();
-	//std::cout << "\n\n";
-	//part3();
-	//std::cout << "\n\n";
-	//part4();
-	//std::cout << "\n\n";
-	//part5();
-	//std::cout << "\n\n";
-	//part6();
-	//std::cout << "\n\n";
-	//part7();
-	//std::cout << "\n\n";
-	//part8();
-	//std::cout << "\n\n";
-	//part9();
-	//std::cout << "\n\n"
+	part1();
+	std::cout << "\n\n";
+	part2();
+	std::cout << "\n\n";
+	part3();
+	std::cout << "\n\n";
+	part4();
+	std::cout << "\n\n";
+	part5();
+	std::cout << "\n\n";
+	part6();
+	std::cout << "\n\n";
+	part7();
+	std::cout << "\n\n";
+	part8();
+	std::cout << "\n\n";
+	part9();
+	std::cout << "\n\n";
 	part10();
 }
 void part1()
