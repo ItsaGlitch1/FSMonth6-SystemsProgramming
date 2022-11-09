@@ -40,18 +40,18 @@ int main()
 	//std::cout << x << '\t' << &x << std::endl;
 
 	// Pointers
-	int x = 5;
-	int* xptr = &x;
-	std::cout << x << '\t' << &x << '\t' << xptr << std::endl;
+	//int x = 5;
+	//int* xptr = &x;
+	//std::cout << x << '\t' << &x << '\t' << xptr << std::endl;
 
 	//// dereference operator (*) - gives value at that memory address ( only used on pointers )
-	std::cout << *xptr << std::endl;
-	PassbyPtr(&x);
-	std::cout << x << '\t' << &x << std::endl;
+	//std::cout << *xptr << std::endl;
+	//PassbyPtr(&x);
+	//std::cout << x << '\t' << &x << std::endl;
 
-	//Person person; // instance of Person struct call person
-	//strcpy_s(person.name, "Jason");
-	//person.age = 25;
+	Person person; // instance of Person struct call person
+	strcpy_s(person.name, "Jason");
+	person.age = 25;
 
 	/*std::cout << "name = " << person.name << " age = " << person.age << std::endl;
 	PassbyValue(person);
@@ -61,9 +61,9 @@ int main()
 	PassbyRef(person);
 	std::cout << "name = " << person.name << " age = " << person.age << std::endl;*/
 
-	//std::cout << "name = " << person.name << " age = " << person.age << std::endl;
-	//PassbyPtr(&person);
-	//std::cout << "name = " << person.name << " age = " << person.age << std::endl;
+	std::cout << "name = " << person.name << " age = " << person.age << std::endl;
+	PassbyPtr(&person);
+	std::cout << "name = " << person.name << " age = " << person.age << std::endl;
 
 }
 
@@ -117,3 +117,14 @@ void PassbyPtr(Person* pptr)
 
 
 }
+
+// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
+// Debug program: F5 or Debug > Start Debugging menu
+
+// Tips for Getting Started: 
+//   1. Use the Solution Explorer window to add/manage files
+//   2. Use the Team Explorer window to connect to source control
+//   3. Use the Output window to see build output and other messages
+//   4. Use the Error List window to view errors
+//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
+//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

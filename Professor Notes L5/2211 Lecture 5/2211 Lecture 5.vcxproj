@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{49ef3469-55d8-4d06-ba85-c3fc4ae95fbc}</ProjectGuid>
-    <RootNamespace>My2211Lecture3</RootNamespace>
+    <ProjectGuid>{a5b3d49d-016e-41b8-a5c5-bbb709ce3442}</ProjectGuid>
+    <RootNamespace>My2211Lecture5</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="2211 Lecture 3.cpp" />
+    <ClCompile Include="2211 Lecture 5.cpp" />
+    <ClCompile Include="Boat.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Boat.h" />
+    <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
