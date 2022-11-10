@@ -2,23 +2,27 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include "Helper.h"
 #include "CheckingAccount.h"
 #include "SavingsAccount.h"
 #include "CreditAccount.h"
 
+CheckingAccount checking;
+SavingsAccount savings;
+CreditAccount credit;
+
+
+void TextInput();
+void TextOutput();
 int main()
 {
     int input = 0;
-    float balance = 0;
     float cashInput = 0;
-    std::vector<std::string> MenuOptions = {"1. Checking Account", "2. Savings Account", "3. Credit Account", "4. Quit"};
+    std::vector<std::string> MenuOptions = {"1. Checking Account", "2. Savings Account", "3. Credit Account", "4. Save & Quit"};
     std::vector<std::string> DepositOrWithdraw = {"1. Deposit", "2. Withdraw", "3. Back"};
-    CheckingAccount checking;
-    SavingsAccount savings;
-    CreditAccount credit;
-    
+    TextInput();
     while (input != 4)
     {
         system("CLS");
@@ -30,8 +34,7 @@ int main()
             while (input != 3)
             {
                 system("CLS");
-                balance = checking.GetBalance();
-                std::cout << "Checking Account\n" << "Balance: " << balance << '\n' << std::endl;
+                std::cout << "Checking Account\n" << "Balance: $" << checking.GetBalance() << '\n' << std::endl;
 
                 input = Helper::Menu(DepositOrWithdraw);
                 switch (input)
@@ -73,8 +76,7 @@ int main()
             while (input != 3)
             {
                 system("CLS");
-                balance = savings.GetBalance();
-                std::cout << "Savings Account\n" << "Balance: " << balance << '\n' << std::endl;
+                std::cout << "Savings Account\n" << "Balance: $" << savings.GetBalance() << '\n' << std::endl;
 
                 input = Helper::Menu(DepositOrWithdraw);
                 switch (input)
@@ -116,8 +118,7 @@ int main()
             while (input != 3)
             {
                 system("CLS");
-                balance = credit.GetBalance();
-                std::cout << "Credit Account\n" << "Balance: " << balance << '\n' << std::endl;
+                std::cout << "Credit Account\n" << "Balance: $" << credit.GetBalance() << '\n' << std::endl;
 
                 input = Helper::Menu(DepositOrWithdraw);
                 switch (input)
@@ -154,6 +155,51 @@ int main()
                 }
             }
             break;
+        case 4:
+            TextOutput();
+            break;
         }
+    }
+}
+void TextOutput()
+{
+    std::ofstream output;
+    output.open("Balance.txt");
+    if (output.is_open())
+    {
+        output << "checking" << '\t' << checking.GetBalance() << std::endl;
+        output << "savings" << '\t' << savings.GetBalance() << std::endl;
+        output << "credit" << '\t' << credit.GetBalance() << std::endl;
+        output.close();
+    }
+    else
+    {
+        std::cout << "ERROR: Could not save Balance." << std::endl;
+    }
+}
+void TextInput()
+{
+    char AccountName[32];
+    float Balance;
+    std::ifstream input;
+    input.open("Balance.txt");
+    if (input.is_open())
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            input.getline(AccountName, INT_MAX, '\t');
+            input >> Balance;
+            input.ignore(FLT_MAX, '\n');
+
+            if (i == 0)
+                checking.Deposit(Balance);
+            else if (i == 1)
+                savings.Deposit(Balance);
+            else if (i == 2)
+                credit.Deposit(Balance);
+            else
+                std::cout << "Something went wrong with " << AccountName << std::endl;
+        }
+        input.close();
     }
 }
