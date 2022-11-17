@@ -10,6 +10,9 @@ void DisplayRecords(std::vector<Base*>& v);
 std::vector<Base*> DuplicateRecord(std::vector<Base*>& v);
 int main()
 {
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    _CrtSetBreakAlloc(-1);
+    _CrtDumpMemoryLeaks();
     std::vector<Base*> baseptr;
     std::vector<std::string> Options = { "1. Add Record", "2. Display Records", "3. Duplicate Records", "4. Quit" };
     int input = 0;
