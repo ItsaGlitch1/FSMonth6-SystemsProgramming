@@ -1,20 +1,59 @@
-// Lab 8.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <vector>
+#include "TriangleStack.h"
+#include "TriangleHeap.h"
 
+
+int AddNumbersAndReturn(int* a, int* b);
+void AddNumbersVoid(int a, int b, int* sum);
+void SwapValues(int* a, int* b);
 int main()
 {
-    std::cout << "Hello World!\n";
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	_CrtSetBreakAlloc(-1);
+	_CrtDumpMemoryLeaks();
+	srand(time(NULL));
+
+	TriangleStack Stack1;
+	Stack1.SetmBase((float)rand());
+	Stack1.SetmHeight((float)rand());
+	TriangleStack Stack2;
+	Stack2.SetmBase((float)rand());
+	Stack2.SetmHeight((float)rand());
+	std::vector<TriangleStack> Stacks;
+	Stacks.push_back(Stack1);
+	Stacks.push_back(Stack2);
+	for (int i = 0; i < Stacks.size(); i++)
+	{
+		std::cout << Stacks[i].GetArea() << std::endl;
+	}
+
+	TriangleHeap Heap1;
+	Heap1.SetmBase((float)rand());
+	Heap1.SetmHeight((float)rand());
+	TriangleHeap Heap2;
+	Heap2.SetmBase((float)rand());
+	Heap2.SetmHeight((float)rand());
+	std::vector<TriangleHeap> Heaps;
+	Heaps.push_back(Heap1);
+	Heaps.push_back(Heap2);
+	for (int i = 0; i < Heaps.size(); i++)
+	{
+		std::cout << Heaps[i].GetArea() << std::endl;
+	}
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+int AddNumbersAndReturn(int* a, int* b)
+{
+	return *a + *b;
+}
+void AddNumbersVoid(int a, int b, int* sum)
+{
+	*sum = a + b;
+}
+void SwapValues(int* a, int* b)
+{
+	int temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
